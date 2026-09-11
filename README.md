@@ -1,10 +1,26 @@
 # 电商商品多模态问答（Agentic Multimodal RAG）
 
+![CI](https://github.com/jianghanyu600-prog/self-correcting-rag/actions/workflows/ci.yml/badge.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)
+
 > 一个「读得懂图、会自己查」的电商商品问答 Agent：量化**模态缺口**（答案只在图里、文字没有），
 > 并做两组对比实验：**融合策略**（纯文本 / 图→caption / 回答阶段真看图）与
 > **Agentic vs 固定流水线 RAG**（含干扰文档的难例）。
 
-> 仓库目录/包名为历史遗留（`self-correcting-rag`），项目内容即上述电商多模态问答。
+> 仓库目录/包名 `self-correcting-rag` 为早期遗留，项目内容即上述电商多模态问答。
+
+## 结果速览
+
+| 实验 | 结果 |
+|---|---|
+| **模态缺口**（图题 5 条） | 纯文本 **0%** → 加图像通道 **100%** |
+| **Agentic vs 固定 RAG**（易语料 14 条） | 100% vs 100%，Agent **更贵**（+3.2k token / +3.2s） |
+| **Agentic vs 固定 RAG**（难例 6 条 + 30 干扰） | **67% → 83%**（Agent 靠多轮检索补齐） |
+| 忠实性 | 无支撑问题拒答 **100%**、幻觉 **0%** |
+| 跨模型鲁棒性 | DeepSeek 3/3 vs 千问 qwen-vl-plus 2/3（+图像，诱导题） |
+
+> 一句话结论：**Agent 的价值在"一次检索不够"时显现，代价是约 1.4× token 与延迟。**
 
 ---
 
@@ -35,7 +51,7 @@
 - 检索：BM25 + **中文 bigram 分词**（中文无空格，按相邻两字切 token）
 - 生成：严格 grounding——只依据片段，不足则回复"无法根据给定信息回答"
 - Agent：自实现**工具循环**（依赖注入 `complete()`，可离线单测），带**步数/工具预算**
-- 评测：LLM-as-judge（正确性）+ 忠实度三分类；**20 个离线单测**不依赖网络
+- 评测：LLM-as-judge（正确性）+ 忠实度三分类；**14 个离线单测**不依赖网络
 
 ## 3. Algorithm（关键取舍）
 
@@ -106,7 +122,7 @@
 **复现**
 ```bash
 uv sync                                        # 安装依赖
-uv run pytest -q                               # 20 个离线单测
+uv run pytest -q                               # 14 个离线单测
 uv run python scripts/make_images.py           # 合成商品图
 uv run python scripts/make_distractors.py      # 合成 30 篇干扰文档
 uv run python scripts/baseline_a.py            # W1 文本基线
@@ -121,5 +137,5 @@ uv run python scripts/eval_agentic_hard.py     # Agentic vs 固定 RAG（含干�
 ```
 corpus/  products_docs 商品语料 · products_docs_distract 干扰语料 · products_images 合成图 · *golden*.jsonl 评测集
 src/self_correcting_rag/  ingest 装载 · retrieve 检索 · images 图像入索引 · vlm 看图 · tools 工具 · agent Agent循环 · gen 生成 · judge 自评 · eval 评估
-scripts/  实验与数据生成脚本 · tests/  20 个离线单测
+scripts/  实验与数据生成脚本 · tests/  14 个离线单测
 ```

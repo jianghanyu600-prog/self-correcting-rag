@@ -1,6 +1,0 @@
-{"id": "A-01", "kind": "single_hop", "question": "星云客服平台专业版每坐席每月起价是多少？", "expected_docs": ["billing.md"], "answer": "399 元", "note": "billing.md 明确专业版起价 399 元/坐席/月"}
-{"id": "A-02", "kind": "single_hop", "question": "情绪识别使用的是哪个模型？", "expected_docs": ["models.md"], "answer": "sentiment-v2", "note": "models.md 首句"}
-{"id": "A-03", "kind": "single_hop", "question": "会话数据的默认保留时长是多久？", "expected_docs": ["deployment.md"], "answer": "30 天", "note": "deployment.md 提到默认保留 30 天"}
-{"id": "B-01", "kind": "multi_hop", "question": "我们打算私有化部署并启用情绪识别，需要满足什么硬件条件，而 sentiment-v2 本身在什么环境下才可用？", "expected_docs": ["deployment.md", "models.md"], "answer": "需至少 16GB 显存；sentiment-v2 仅在私有化环境可用", "note": "答案需拼 deployment(16GB+私有化) 与 models(仅私有化) 两处"}
-{"id": "B-02", "kind": "multi_hop", "question": "在私有化部署中开启情绪识别，它对输入有什么要求？", "expected_docs": ["models.md", "deployment.md"], "answer": "输入为对话原文与 ASR 转写文本", "note": "models.md 说明输入；deployment.md 说明仅私有化开启，两者共同构成前提"}
-{"id": "C-01", "kind": "no_answer", "question": "星云客服平台是否支持实时视频客服？", "expected_docs": [], "answer": null, "note": "语料未提及视频渠道，应拒答而非编造"}

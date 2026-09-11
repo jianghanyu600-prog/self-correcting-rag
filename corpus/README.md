@@ -1,23 +1,22 @@
 # corpus
 
-检索语料 + 三类 golden 评测集（可扩展；当前为虚构产品「星云客服平台」seed）。
+项目 A 的语料与评测集（全部为自造的示例数据，可公开）。
 
 ## 目录
-- `documents/*.md`：语料，按文档/分片组织（billing/deployment/models/privacy…）
-- `golden.jsonl`：评测题，每行一个 JSON 对象：
+- `products_docs/*.md`：5 件商品的目标语料
+- `products_docs_distract/*.md`：30 篇干扰商品（词重叠），用于制造"一次检索不够"的难例
+- `products_images/*.png`：3 张合成商品图（信息只在图里，文字未提）
+- `products_golden.jsonl`：文本题（单跳/多跳/空召回）
+- `products_golden_image.jsonl`：图题（答案只在图中）
+- `products_golden_tempting.jsonl`：诱导式题（题面埋前提，测忠实度）
+- `products_golden_hard.jsonl`：难例（不含 SKU 的模糊题面，配合干扰文档）
 
+## 评测题字段
 | 字段 | 含义 |
 |---|---|
-| id | 题目编号（A-xx 单跳 / B-xx 多跳 / C-xx 空召回） |
-| kind | `single_hop` / `multi_hop` / `no_answer` |
+| id | 题目编号 |
+| kind | `single_hop` / `multi_hop` / `no_answer` / `image_only` / `tempting` / `hard` |
 | question | 用户问题 |
-| expected_docs | 期望被检索到的文档名（相对 documents/）；`no_answer` 为空数组 |
-| answer | 期望答案；`no_answer` 为 null |
-| note | 依据说明（写题人备注） |
-
-## 设计约束
-- `single_hop`：单文档可答，首轮检索应命中；
-- `multi_hop`：答案要拼 ≥2 处文档，首轮检索常漏 → 是自纠错的主要受益对象；
-- `no_answer`：语料里确实没有 → 应正确拒答，防止幻觉。
-
-目标规模：~50 题（A/B/C 大致 2:2:1），宁少而准，不凑数。
+| expected_docs | 期望命中的文档/图片名；`no_answer` 为空数组 |
+| answer | 标准答案；`no_answer` 为 null |
+| note | 出题依据说明 |
