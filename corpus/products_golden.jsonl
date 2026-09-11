@@ -1,0 +1,8 @@
+{"id": "PA-01", "kind": "single_hop", "question": "SKU-1001 极境雪地羽绒服的填充物是什么？", "expected_docs": ["p1001_snow_jacket.md"], "answer": "90% 白鸭绒，充绒量 200g", "note": "p1001 面料/填充字段"}
+{"id": "PA-02", "kind": "single_hop", "question": "SKU-2001 越野跑鞋单只重量多少克？", "expected_docs": ["p2001_trail_shoes.md"], "answer": "约 260g", "note": "p2001 重量字段"}
+{"id": "PA-03", "kind": "single_hop", "question": "SKU-3001 瑜伽裤的面料成分是什么？", "expected_docs": ["p3001_yoga_leggings.md"], "answer": "锦纶 78% + 氨纶 22%", "note": "p3001 面料字段"}
+{"id": "PA-04", "kind": "single_hop", "question": "SKU-4001 智能体脂秤需要几节什么型号的电池？", "expected_docs": ["p4001_smart_scale.md"], "answer": "4 节 AAA 电池", "note": "p4001 供电字段"}
+{"id": "PA-05", "kind": "multi_hop", "question": "极寒徒步路线需要一双适合雨后湿滑路面、防泼水的越野跑鞋，和一件能抗 -30°C 的外套，应分别选哪个 SKU？各自价格多少？", "expected_docs": ["p2001_trail_shoes.md", "p1001_snow_jacket.md"], "answer": "鞋选 SKU-2001（¥899），外套选 SKU-1001（¥1299）", "note": "答案需拼 p2001 防泼水/湿地止滑与 p1001 耐 -30°C 两处"}
+{"id": "PA-06", "kind": "multi_hop", "question": "想测体脂并把数据同步到手机，除了体脂秤本体，还需要关注它的连接方式和供电要求，分别是什么？", "expected_docs": ["p4001_smart_scale.md"], "answer": "蓝牙 5.0 + App；4 节 AAA 电池", "note": "此条实际单文档可答，作为对照；验证区分度后再强化"}
+{"id": "PA-07", "kind": "no_answer", "question": "SKU-5001 空气炸锅支持手机 App 远程操控吗？", "expected_docs": [], "answer": null, "note": "语料未提 App/远程，应拒答"}
+{"id": "PA-08", "kind": "no_answer", "question": "SKU-4001 智能体脂秤支持 NFC 门禁功能吗？", "expected_docs": [], "answer": null, "note": "语料未提 NFC，应拒答"}

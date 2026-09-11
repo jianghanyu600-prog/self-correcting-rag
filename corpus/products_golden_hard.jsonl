@@ -1,0 +1,6 @@
+{"id": "H-01", "kind": "hard", "question": "双十二到手价 179 的那件羽绒服，它的原价是多少？", "expected_docs": ["img_p1001_promo.png", "p1001_snow_jacket.md"], "answer": "原价 ¥1299", "note": "179 只在图里；题面不含 SKU，干扰文档大量含 双十二/到手价"}
+{"id": "H-02", "kind": "hard", "question": "标称 5L、实际可用只有 4.2L 的那款空气炸锅，官方建议怎么清洗？", "expected_docs": ["img_p5001_capacity.png"], "answer": "温水 + 中性洗涤剂浸泡 10 分钟", "note": "4.2L/清洗建议只在图里；干扰文档含大量 容量/清洗"}
+{"id": "H-03", "kind": "hard", "question": "脚长 260mm 建议选 42 码的是哪双鞋？它单只重量多少克？", "expected_docs": ["img_p2001_size.png", "p2001_trail_shoes.md"], "answer": "山脊越野跑鞋 SKU-2001，约 260g", "note": "尺码表只在图里，重量在文本；需跨两处"}
+{"id": "H-04", "kind": "hard", "question": "赠品是收纳袋的那件抗 -30°C 羽绒服，面料能不能防水？", "expected_docs": ["img_p1001_promo.png", "p1001_snow_jacket.md"], "answer": "能，防水尼龙", "note": "赠品在图里、面料在文本"}
+{"id": "H-05", "kind": "hard", "question": "8 电极、蓝牙连接、用 4 节 AAA 电池的那款秤卖多少钱？", "expected_docs": ["p4001_smart_scale.md"], "answer": "¥199", "note": "干扰文档含大量 电池/供电，需精确特征匹配"}
+{"id": "H-06", "kind": "hard", "question": "高腰、锦纶 78% 加氨纶 22% 的那条裤子，有哪些颜色？", "expected_docs": ["p3001_yoga_leggings.md"], "answer": "黑 / 灰 / 雾紫", "note": "干扰文档含各种 锦纶/氨纶 配比"}

@@ -1,0 +1,5 @@
+{"id": "IG-01", "kind": "image_only", "question": "SKU-1001 双十二活动的到手价是多少？赠品是什么？", "expected_docs": ["img_p1001_promo.png"], "answer": "到手价 ¥179，赠收纳袋 1 个", "note": "价格/赠品只在图里，文字语料未提"}
+{"id": "IG-02", "kind": "image_only", "question": "SKU-1001 的促销活动什么时候截止？", "expected_docs": ["img_p1001_promo.png"], "answer": "12-31", "note": "截止日期只在图里"}
+{"id": "IG-03", "kind": "image_only", "question": "SKU-2001 脚长 260mm 建议选多大码？", "expected_docs": ["img_p2001_size.png"], "answer": "42 码", "note": "尺码表只在图里"}
+{"id": "IG-04", "kind": "image_only", "question": "SKU-5001 炸篮实际可用容量是多少？与标称容量相差多少？", "expected_docs": ["img_p5001_capacity.png"], "answer": "实际 4.2L，标称 5L，相差 0.8L", "note": "需结合文字(标称5L)与图(实际4.2L)"}
+{"id": "IG-05", "kind": "image_only", "question": "SKU-5001 官方建议怎么清洗炸篮？", "expected_docs": ["img_p5001_capacity.png"], "answer": "温水 + 中性洗涤剂浸泡 10 分钟", "note": "清洗建议只在图里"}

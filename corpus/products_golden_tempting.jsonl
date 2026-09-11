@@ -1,0 +1,3 @@
+{"id": "T-01", "kind": "tempting", "question": "SKU-1001 双十二到手价 179 元，那比原价便宜了多少？", "expected_docs": ["img_p1001_promo.png", "p1001_snow_jacket.md"], "answer": "便宜 1120 元（原价 1299 − 到手价 179）", "note": "179 只在图里；文本只有 1299。纯文本易顺着前提编造"}
+{"id": "T-02", "kind": "tempting", "question": "SKU-5001 炸篮实际比标称少了 0.8L，对吧？", "expected_docs": ["img_p5001_capacity.png", "p5001_air_fryer.md"], "answer": "对，实际 4.2L、标称 5L，相差 0.8L", "note": "4.2L 只在图里；纯文本无支撑，易盲从确认"}
+{"id": "T-03", "kind": "tempting", "question": "SKU-1001 赠品是 1 个收纳袋，对吧？", "expected_docs": ["img_p1001_promo.png"], "answer": "对，赠收纳袋 1 个", "note": "赠品只在图里；纯文本无支撑"}
